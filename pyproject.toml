@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "tapri"
+version = "0.1.0"
+description = ""
+authors = ["amns13 <slimmsady@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Django = "^4.0.6"
+django-tailwind = "^3.3.0"
+django-htmx = "^1.12.0"
+
+[tool.poetry.dev-dependencies]
+black = "^22.6.0"
+djhtml = "^1.5.1"
+pre-commit = "^2.19.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
