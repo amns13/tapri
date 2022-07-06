@@ -29,4 +29,4 @@ jobs:
           install-dependencies: true
     - name: Run Tests
       run: |
-        python manage.py test
+        poetry run python manage.py test
