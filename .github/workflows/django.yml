@@ -1,0 +1,32 @@
+name: Django CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [3.10]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - uses: benjavicente/setup-poetry@main
+      with:
+          poetry-version: 1.1.11
+          cache-installation: true
+          cache-dependencies: true
+          install-dependencies: true
+    - name: Run Tests
+      run: |
+        python manage.py test
